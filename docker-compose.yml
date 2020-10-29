@@ -1,0 +1,9 @@
+version: "3"
+services:
+  bot:
+    build: .
+    restart: always
+    volumes:
+      - ./timetable.yml:/bot/timetable.yml
+    environment:
+      - TOKEN=1302884131:AAEzOkdB02duJyqRO2ryKqvaaX2rVOAA2AU
