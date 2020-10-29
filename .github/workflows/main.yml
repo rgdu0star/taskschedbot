@@ -11,8 +11,9 @@ jobs:
         uses: wlixcc/SFTP-Deploy-Action@v1.0
         with:
           username: 'root'
-          server: 'treba.ml:1722'
-          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }} 
+          server: 'treba.ml'
+          port: '1522'
+          ssh_private_key: ${{ secrets.SSH_RPI3 }} 
           local_path: '/'
           remote_path: '/home/pirate/tg-timetable-bot/'
           args: '-o ConnectTimeout=5'
