@@ -1,4 +1,6 @@
-on: [commit]
+on:
+  project:
+    types: [updated]
 
 jobs:
   deploy_job:
