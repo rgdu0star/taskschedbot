@@ -1,0 +1,2 @@
+- name: SFTP Deploy
+  uses: wlixcc/SFTP-Deploy-Action@v1.0
