@@ -1,6 +1,4 @@
-on:
-  project:
-    types: [updated]
+on: [watch]
 
 jobs:
   deploy_job:
