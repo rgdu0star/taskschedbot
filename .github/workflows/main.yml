@@ -10,7 +10,7 @@ jobs:
       - name: deploy file
         uses: wlixcc/SFTP-Deploy-Action@v1.0
         with:
-          username: 'root'
+          username: 'pirate'
           server: 'treba.ml'
           port: '1522'
           ssh_private_key: ${{ secrets.SSH_RPI3 }} 
