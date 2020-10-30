@@ -1,19 +1,16 @@
-on: [push]
-
+on: push
+name: Publish Website
 jobs:
-  deploy_job:
+  FTP-Deploy-Action:
+    name: FTP-Deploy-Action
     runs-on: ubuntu-latest
-    name: deploy
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: deploy file
-        uses: wlixcc/SFTP-Deploy-Action@v1.0
-        with:
-          username: 'pirate'
-          server: 'treba.ml'
-          port: '1522'
-          ssh_private_key: ${{ secrets.SSH_RPI3 }} 
-          local_path: './timetable.yml'
-          remote_path: '/home/pirate/tg-timetable-bot/'
-          args: '-o ConnectTimeout=5'
+    - uses: actions/checkout@v2.1.0
+      with:
+        fetch-depth: 2
+    - name: FTP-Deploy-Action
+      uses: SamKirkland/FTP-Deploy-Action@3.1.1
+      with:
+        ftp-server: sftp://treba.ml:1522/home/pirate/tg-timetable-bot/
+        ftp-username: pirate
+        ftp-password: ${{ secrets.FTP_PASSWORD }}
